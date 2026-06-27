@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MapExplorer — Buenos Aires</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="logo">Map<span>Explorer</span></div>
+
+
+    <span class="tagline">Explorador de mapas</span>
+  </header>
+
+  <!-- ── Main ── -->
+  <div class="main">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+
+      <!-- Información de ubicación -->
+      <div>
+        <p class="sidebar-section-title">Ubicación actual</p>
+        <div class="info-card">
+          <div class="city-name">Tepic</div>
+          <div class="city-sub">Nayarit, México</div>
+          <div class="coords-grid">
+            <div class="coord-item">
+              <div class="label">Latitud</div>
+              <div class="value">21.5015293°</div>
+            </div>
+            <div class="coord-item">
+              <div class="label">Longitud</div>
+              <div class="value">-104.9046031°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tipo de mapa -->
+      <div>
+        <p class="sidebar-section-title">Tipo de vista</p>
+        <div class="map-type-group">
+          <button class="map-type-btn active" data-tipo="roadmap"
+                  onclick="cambiarTipo('roadmap')">
+            <span class="btn-icon">|</span> Mapa de calles
+          </button>
+          <button class="map-type-btn" data-tipo="satellite"
+                  onclick="cambiarTipo('satellite')">
+            <span class="btn-icon">|</span> Satélite
+          </button>
+          <button class="map-type-btn" data-tipo="hybrid"
+                  onclick="cambiarTipo('hybrid')">
+            <span class="btn-icon">|</span> Híbrido
+          </button>
+          <button class="map-type-btn" data-tipo="terrain"
+                  onclick="cambiarTipo('terrain')">
+            <span class="btn-icon">|</span> Terreno
+          </button>
+        </div>
+      </div>
+
+      <!-- Controles de zoom -->
+      <div>
+        <p class="sidebar-section-title">Zoom</p>
+        <div class="zoom-controls">
+          <button class="zoom-btn" onclick="acercar()" title="Acercar">＋</button>
+          <button class="zoom-btn" onclick="alejar()"  title="Alejar">－</button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        Datos de mapa &copy; Google Maps<br/>
+        <a href="https://developers.google.com/maps" target="_blank">Google Maps Platform</a>
+      </div>
+
+    </aside>
+
+    <!-- ── Mapa ── -->
+    <div style="position:relative;">
+      <div id="map"></div>
+
+      <!-- Badge flotante -->
+      <div class="map-badge">
+        <div class="badge-title">📍 Marcador activo</div>
+        Tepic, Nayarit | 21.5015293, -104.9046031
+      </div>
+    </div>
+
+  </div><!-- /.main -->
+</div><!-- /.app-wrapper -->
+
+<script src="script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap" async defer></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NASA — Imagen del Día</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <!-- Loading -->
+  <div id="loading">
+    <div class="loader-ring"></div>
+    <span class="loader-text">Cargando&hellip;</span>
+  </div>
+
+  <!-- Error -->
+  <div id="error">
+    <span class="err-icon">|</span>
+    <h2>No se pudo obtener la imagen</h2>
+    <p>Hubo un problema al conectar con la API de la NASA. Intenta recargar la página.</p>
+  </div>
+
+  <!-- Wordmark -->
+  <div id="wordmark">
+    <div class="nasa-logo">NASA</div>
+    <div class="nasa-sub">
+      <strong>Imagen del Día</strong>
+      Astronomy Picture of the Day
+    </div>
+  </div>
+
+  <!-- Hero: imagen o video -->
+  <div id="hero"></div>
+
+  <!-- Panel de información -->
+  <div id="panel">
+    <div class="panel-left">
+      <div class="eyebrow">Astronomy Picture of the Day</div>
+      <h1 id="titulo"></h1>
+      <div id="fecha-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span id="fecha"></span>
+      </div>
+    </div>
+
+    <div class="panel-right">
+      <div class="desc-label">Descripción</div>
+      <p id="descripcion"></p>
+      <a id="nasa-link" class="nasa-link" href="https://apod.nasa.gov" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        Ver en NASA APOD
+      </a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyView | Bluesky Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilacho.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">SkyView</span>
+      </div>
+      <p class="logo-sub">Bluesky Social Explorer</p>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-layout">
+
+    <!-- SIDEBAR / SEARCH PANEL -->
+    <aside class="sidebar">
+
+      <!-- Login section -->
+      <section class="card" id="login-card">
+        <h2 class="card-title">Acceso AT Protocol</h2>
+        <p class="card-desc">Ingresa tus credenciales de Bluesky para publicar y ver tu feed.</p>
+        <div class="field">
+          <label for="handle">Handle</label>
+          <input type="text" id="handle" placeholder="usuario.bsky.social" autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="app-password">App Password</label>
+          <input type="password" id="app-password" placeholder="xxxx-xxxx-xxxx-xxxx" autocomplete="current-password" />
+          <span class="field-hint">Genera una en Bluesky → Configuración → Contraseñas de App</span>
+        </div>
+        <button class="btn btn-primary" id="login-btn">Conectar</button>
+        <div id="login-status" class="status-msg"></div>
+      </section>
+
+      <!-- Search section -->
+      <section class="card">
+        <h2 class="card-title">Explorar perfiles</h2>
+        <div class="field">
+          <label for="search-handle">Handle o DID</label>
+          <input type="text" id="search-handle" placeholder="ejemplo.bsky.social" />
+        </div>
+        <button class="btn btn-secondary" id="search-btn">Buscar perfil</button>
+      </section>
+
+      <!-- Post section (visible after login) -->
+      <section class="card hidden" id="post-card">
+        <h2 class="card-title">Nueva publicación</h2>
+        <textarea id="post-text" maxlength="300" placeholder="¿Qué está pasando en el cielo?"></textarea>
+        <div class="char-counter"><span id="char-count">0</span>/300</div>
+        <button class="btn btn-post" id="post-btn">Publicar ⬡</button>
+        <div id="post-status" class="status-msg"></div>
+      </section>
+
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <section class="content-area">
+
+      <!-- Tabs -->
+      <nav class="tab-nav">
+        <button class="tab active" data-tab="feed">Feed público</button>
+        <button class="tab" data-tab="profile">Perfil</button>
+        <button class="tab" data-tab="trending">Tendencias</button>
+      </nav>
+
+      <!-- Feed tab -->
+      <div class="tab-content active" id="tab-feed">
+        <div class="feed-header">
+          <h2>Feed global · Bluesky</h2>
+          <button class="btn btn-ghost" id="refresh-feed-btn">↻ Actualizar</button>
+        </div>
+        <div id="feed-container" class="posts-list">
+          <div class="skeleton-loader">
+            <div class="skeleton-post"></div>
+            <div class="skeleton-post"></div>
+            <div class="skeleton-post"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile tab -->
+      <div class="tab-content" id="tab-profile">
+        <div id="profile-container" class="profile-empty">
+          <span class="empty-icon">⬡</span>
+          <p>Busca un handle en el panel izquierdo para ver el perfil.</p>
+        </div>
+      </div>
+
+      <!-- Trending tab -->
+      <div class="tab-content" id="tab-trending">
+        <div class="feed-header">
+          <h2>Publicaciones recientes</h2>
+          <button class="btn btn-ghost" id="refresh-trending-btn">↻ Actualizar</button>
+        </div>
+        <div id="trending-container" class="posts-list">
+          <div class="skeleton-loader">
+            <div class="skeleton-post"></div>
+            <div class="skeleton-post"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- TOAST notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
