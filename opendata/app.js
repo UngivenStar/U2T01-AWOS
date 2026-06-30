@@ -2,7 +2,7 @@ window.addEventListener('load', obtenerDatos);
 
 function obtenerDatos() {
 
-    const Nasa_key = '7EOejC8X6wsEQnSRyc8Tk8z3y0cwXypBjuUw5dJH';
+    const Nasa_key = '7LEnwvBGozg4qjdsTJo1A96mn5pGMHtYhNncEavU';
     const ruta = `https://api.nasa.gov/planetary/apod?api_key=${Nasa_key}`;
 
     fetch(ruta)
